@@ -297,13 +297,13 @@ BasicMatrix<T>::operator=(BasicMatrix<T>&& obj)
 * @重载正负号
 */
 template<typename T> BasicMatrix<T>&
-operator+()
+BasicMatrix<T>::operator+()
 {
 	return *this;
 }
 
 template<typename T> BasicMatrix<T>&
-operator-()
+BasicMatrix<T>::operator-()
 {
 	this->_ratio *= -1;
 	return *this;
@@ -433,20 +433,20 @@ operator*(const BasicMatrix<T>& para_1st, const T& para_2nd)
 //如果请求元素超出矩阵范围，则抛出out_of_range异常
 //返回位置为(m, n)的元素（数学上）
 template<typename T> T&
-at(size_t m, size_t n)
+BasicMatrix<T>::at(size_t m, size_t n)
 {
 	try
 	{
 		if((0 == m) || (m >= this->_row) ||
 		   (0 == n) || (n >= this->_col))
 			throw out_of_range("Out of range.");
+
+		return this->_element[m-1][n-1];
 	}
 	catch(out_of_range&)
 	{
 		throw;
 	}
-
-	return this->_element[m-1][n-1];
 }
 
 typedef BasicMatrix<double> Matrix;
