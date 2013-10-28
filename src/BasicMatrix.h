@@ -19,6 +19,7 @@ using std::out_of_range;
 template<typename T>
 class BasicMatrix
 {
+	//ID计数器
     static vector<size_t> _ID_val;
 
 protected: //私有变量
