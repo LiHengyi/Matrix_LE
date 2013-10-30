@@ -250,11 +250,7 @@ BasicMatrix<T>::~BasicMatrix()
         this->_element = nullptr;
     }
     else
-    {
-        for(size_t i = this->_row; i < this->_row; ++i)
-            this->_element[i] = nullptr;
         this->_element = nullptr;
-    }
 }
 
 /*
